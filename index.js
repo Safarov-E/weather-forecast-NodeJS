@@ -1,10 +1,10 @@
-const fs = require('fs');
-const data = `
-    Hello from NodeJS
-    I am random text!
-`;
-fs.writeFileSync('nodejs.txt', data);
+const express = require('express');
+const app = express();
 
-const result = fs.readFileSync('nodejs.txt', {encoding: 'utf-8'});
-console.log(result);
-console.log(__filename);
+app.get('/',(req, res) => {
+    res.end('Hello from nodejs');
+});
+
+app.listen(3000, () => {
+    console.log('Server has started on port 3000...')
+});
